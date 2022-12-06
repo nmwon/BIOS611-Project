@@ -1,0 +1,1037 @@
+1669737664896:md_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1669737669371:#BIOS611 Project
+1669737669392:#Reading in Data
+1669737669411:library(tidyverse);
+1669737671840:#Age Data
+1669737671855:md_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1669737672401:nc_age <- read_csv("Data/NC/NIBRS_Age.csv");
+1669737672651:#Offender Data
+1669737672670:md_off <- read_csv("Data/MD/NIBRS_offender.csv");
+1669737673097:nc_off <- read_csv("Data/NC/NIBRS_offender.csv");
+1669737675191:#Merging Age Data
+1669737675206:merge <- md_off %>% left_join(md_age, by = "AGE_ID");
+1669737675250:#Creating Graphs
+1669737675265:bar_age_graph <- ggplot(md_off, aes(AGE_NUM)) + geom_bar();
+1669737675289:bar_sex_graph <- ggplot(md_off, aes(x = SEX_CODE)) + geom_bar();
+1669738264639:#Age Data
+1669738264655:md_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1669738264864:nc_age <- read_csv("Data/NC/NIBRS_Age.csv");
+1669738265068:#Incident Data
+1669738265084:md_inc -> read_csv("Data/MD/NIBRS_incident.csv");
+1669738289058:md_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1669738289285:nc_age <- read_csv("Data/NC/NIBRS_Age.csv");
+1669738295365:md_inc -> read_csv("Data/MD/NIBRS_incident.csv");
+1669738296557:md_inc -> read_csv("Data/MD/NIBRS_incident.csv");
+1669738324681:md_off <- read_csv("Data/MD/NIBRS_offender.csv");
+1669738325064:nc_off <- read_csv("Data/NC/NIBRS_offender.csv");
+1669738359094:md_inc <- read_csv("Data/MD/NIBRS_incident.csv");
+1669738359448:nc_inc <- read_csv("Data/NC/NIBRS_incident.csv");
+1669738362525:#Offender Data
+1669738362549:md_off <- read_csv("Data/MD/NIBRS_offender.csv");
+1669738362847:nc_off <- read_csv("Data/NC/NIBRS_offender.csv");
+1669738363781:# Victim Data
+1669738363808:md_vic <- read_csv("Data/MD/NIBRS_victim.csv");
+1669738364241:nc_vic <- read_csv("Data/NC/NIBRS_victim.csv");
+1669738366985:# Offense Data
+1669738367001:md_offe <- read_csv("Data/MD/NIBRS_offense.csv");
+1669738367470:nc_offe <- read_csv("Data/NC/NIBRS_offense.csv");
+1669738374644:ds_list <- list(md_inc, md_off, md_vic, md_offe);
+1669738374663:ds_list %>% reduce(full_join, by = 'incident_id');
+1669738398879:md_inc;
+1669738451006:md_inc <- read_csv("Data/MD/NIBRS_incident.csv") %>% drop_na();
+1669738451309:nc_inc <- read_csv("Data/NC/NIBRS_incident.csv") %>% drop_na();
+1669738457063:md_inc;
+1669738459154:md_inc;
+1669738471924:md_inc <- read_csv("Data/MD/NIBRS_incident.csv") %>% drop_na(incident_id);
+1669738482551:md_inc;
+1669738496815:md_inc <- read_csv("Data/MD/NIBRS_incident.csv") %>% drop_na(INCIDENT_ID);
+1669738502818:md_inc;
+1669738564068:#Incident Data
+1669738564088:md_inc <- read_csv("Data/MD/NIBRS_incident.csv") %>% drop_na(INCIDENT_ID);
+1669738564410:nc_inc <- read_csv("Data/NC/NIBRS_incident.csv") %>% drop_na(INCIDENT_ID);
+1669738565763:#Offender Data
+1669738565781:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% drop_na(INCIDENT_ID);
+1669738566038:nc_off <- read_csv("Data/NC/NIBRS_offender.csv") %>% drop_na(INCIDENT_ID);
+1669738567026:# Victim Data
+1669738567047:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% drop_na(INCIDENT_ID);
+1669738567359:nc_vic <- read_csv("Data/NC/NIBRS_victim.csv") %>% drop_na(INCIDENT_ID);
+1669738568563:# Offense Data
+1669738568579:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% drop_na(INCIDENT_ID);
+1669738568857:nc_offe <- read_csv("Data/NC/NIBRS_offense.csv") %>% drop_na(INCIDENT_ID);
+1669738579661:ds_list <- list(md_inc, md_off, md_vic, md_offe);
+1669738579682:ds_list %>% reduce(full_join, by = 'incident_id');
+1669738588111:ds_list;
+1669738626730:#Offender Data
+1669738626753:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% drop_na(INCIDENT_ID);
+1669738627022:nc_off <- read_csv("Data/NC/NIBRS_offender.csv") %>% drop_na(INCIDENT_ID);
+1669738636540:# Victim Data
+1669738636565:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% drop_na(INCIDENT_ID);
+1669738636899:nc_vic <- read_csv("Data/NC/NIBRS_victim.csv") %>% drop_na(INCIDENT_ID);
+1669738660487:md_vic;
+1669738681452:ds_list <- list(md_inc, md_off, md_vic, md_offe) %>% problems();
+1669738691944:ds_list;
+1669738703274:ds_list %>% reduce(full_join, by = 'incident_id') %>% problems();
+1669738878088:attach(md_inc);
+1669738878114:str(md_inc);
+1669738892439:attach(md_off);
+1669738892464:str(md_off);
+1669738904284:attach(md_vic);
+1669738904308:str(md_vic);
+1669738916137:attach(md_offe);
+1669738916167:str(md_offe);
+1669738949443:# Merging Largest Datasets Together
+1669738949462:ds_list <- list(md_inc, md_off, md_vic);
+1669738949477:ds_list %>% reduce(full_join, by = 'incident_id') %>% problems();
+1669738953520:ds_list;
+1669739034026:ds_list <- list(md_inc, md_off, md_vic);
+1669739034045:ds_list %>% reduce(full_join, by = 'INCIDENT_ID') %>% problems();
+1669739040814:ds_list;
+1669739099531:#BIOS611 Project
+1669739099551:#Reading in Data
+1669739099564:library(tidyverse);
+1669739099579:#Age Data
+1669739099593:md_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1669739099793:nc_age <- read_csv("Data/NC/NIBRS_Age.csv");
+1669739099996:#Incident Data
+1669739100016:md_inc <- read_csv("Data/MD/NIBRS_incident.csv") %>% drop_na(INCIDENT_ID);
+1669739100544:nc_inc <- read_csv("Data/NC/NIBRS_incident.csv") %>% drop_na(INCIDENT_ID);
+1669739103795:#Offender Data
+1669739103812:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% drop_na(INCIDENT_ID);
+1669739104266:nc_off <- read_csv("Data/NC/NIBRS_offender.csv") %>% drop_na(INCIDENT_ID);
+1669739106318:# Victim Data
+1669739106335:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% drop_na(INCIDENT_ID);
+1669739106857:nc_vic <- read_csv("Data/NC/NIBRS_victim.csv") %>% drop_na(INCIDENT_ID);
+1669739109579:# Offense Data
+1669739109592:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% drop_na(INCIDENT_ID);
+1669739109975:nc_offe <- read_csv("Data/NC/NIBRS_offense.csv") %>% drop_na(INCIDENT_ID);
+1669739112010:# Merging Largest Datasets Together
+1669739112028:ds_list <- list(md_inc, md_off, md_vic);
+1669739112051:ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1669739112273:ds_list;
+1669739134271:ds_list <- list(md_inc, md_off, md_vic, md_offe);
+1669739134287:ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1669739188065:ds_list <- list(md_inc, md_off, md_vic, md_offe);
+1669739188082:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1669739188181:FINAL;
+1669931416446:#BIOS611 Project
+1669931416467:#Reading in Data
+1669931416490:library(tidyverse);
+1669931419823:#Age Data
+1669931419842:md_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1669931420915:nc_age <- read_csv("Data/NC/NIBRS_Age.csv");
+1669931428921:md_inc <- read_csv("Data/MD/NIBRS_incident.csv") %>% drop_na(INCIDENT_ID);
+1669931429359:nc_inc <- read_csv("Data/NC/NIBRS_incident.csv") %>% drop_na(INCIDENT_ID);
+1669931442240:#Offender Data
+1669931442274:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% drop_na(INCIDENT_ID);
+1669931442795:nc_off <- read_csv("Data/NC/NIBRS_offender.csv") %>% drop_na(INCIDENT_ID);
+1669931453987:# Victim Data
+1669931454006:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% drop_na(INCIDENT_ID);
+1669931454460:nc_vic <- read_csv("Data/NC/NIBRS_victim.csv") %>% drop_na(INCIDENT_ID);
+1669931485445:# Offense Data
+1669931485461:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% drop_na(INCIDENT_ID);
+1669931485881:nc_offe <- read_csv("Data/NC/NIBRS_offense.csv") %>% drop_na(INCIDENT_ID);
+1669931493786:# Merging Largest Datasets Together
+1669931493807:ds_list <- list(md_inc, md_off, md_vic, md_offe);
+1669931493823:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1669931493954:FINAL;
+1669931748128:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1669931748355:lu_eth
+1669931822296:lu_race <- read_csv("Data/MD/NIBRS_race.csv");
+1669931842747:lu_race <- read_csv("Data/MD/REF_race.csv");
+1669931911055:lu_crime_act <- read_csv("Data/MD/NIBRS_CRIMINAL_ACT.csv");
+1669931923465:lu_crime_act;
+1669932035348:read_csv("Data/MD/NIBRS_ACT_TYPE.csv");
+1669932045078:read_csv("Data/MD/NIBRS_CRIMINAL_ACT_TYPE.csv");
+1669932123156:lu_crime_act <- read_csv("Data/MD/NIBRS_CRIMINAL_ACT.csv") %>%
+1669932123175:full_join(read_csv("Data/MD/NIBRS_CRIMINAL_ACT_TYPE.csv"), by = "CRIMINAL_ACT_ID");
+1669932123609:lu_crime_act;
+1669932179625:md_age;
+1669932314495:ds_list <- list(md_inc, md_off, md_vic, md_offe);
+1669932314516:TEMP <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1669932314927:TEMP;
+1669932363573:View(TEMP)
+1669932520483:TEMP2 <- TEMP %>% left_join(lu_age, by = "AGE_ID");
+1669932525446:lu_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1669932529289:TEMP2 <- TEMP %>% left_join(lu_age, by = "AGE_ID");
+1669932537934:TEMP2;
+1669932553425:TEMP2 <- TEMP %>% left_join(lu_age, by = "AGE_ID");
+1669932954766:View(md_inc)
+1669932955795:View(md_off)
+1669932956938:View(md_offe)
+1669932958106:View(md_vic)
+1669933192930:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% rename(AGE_ID = OFF_AGE_ID) %>% drop_na(INCIDENT_ID);
+1669933201550:View(md_off)
+1669933229918:md_off;
+1669933696510:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% drop_na(INCIDENT_ID);
+1669933701507:View(md_off)
+1669933735009:md_lu <- rename(md_off, AGE_ID = OFF_AGE_ID);
+1669933754692:md_lu <- rename(md_off, "AGE_ID" = "OFF_AGE_ID");
+1669933786467:md_lu <- mutate(md_off, AGE_ID = OFF_AGE_ID);
+1669933804708:md_lu <- mutate(md_off, OFF_AGE_ID = AGE_ID);
+1669933813250:md_lu;
+1669933887607:md_lu <- mutate(md_off, OFF_AGE_ID = AGE_ID, OFF_RACE_ID = RACE_ID, OFF_ETHNICITY_ID = ETHNICITY_ID)
+1669933887632:%>% drop(AGE_ID,RACE_ID,ETHNICITY_ID);
+1669933945418:md_lu <- mutate(md_off, OFF_AGE_ID = AGE_ID, OFF_RACE_ID = RACE_ID, OFF_ETHNICITY_ID = ETHNICITY_ID)
+1669933945441:%>% select(-AGE_ID, -RACE_ID, -ETHNICITY_ID);
+1669933962054:md_lu <- mutate(md_off, OFF_AGE_ID = AGE_ID, OFF_RACE_ID = RACE_ID, OFF_ETHNICITY_ID = ETHNICITY_ID) %>% select(-AGE_ID, -RACE_ID, -ETHNICITY_ID);
+1669933962088:md_lu;
+1669933984836:md_lu <- mutate(md_off, OFF_AGE_ID = AGE_ID, OFF_RACE_ID = RACE_ID, OFF_ETHNICITY_ID = ETHNICITY_ID) %>% select(-AGE_ID, -RACE_ID, -ETHNICITY_ID);
+1669933984864:md_lu;
+1669933995706:md_lu <- mutate(md_off, OFF_AGE_ID = AGE_ID, OFF_RACE_ID = RACE_ID, OFF_ETHNICITY_ID = ETHNICITY_ID) %>%
+1669933995722:select(-AGE_ID, -RACE_ID, -ETHNICITY_ID);
+1669933995750:md_lu;
+1669934229139:md_lu <- mutate(md_off, OFF_AGE_ID = AGE_ID, OFF_RACE_ID = RACE_ID, OFF_ETHNICITY_ID = ETHNICITY_ID,
+1669934229158:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669934229175:select(DATA_YEAR, OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_ID, OFF_RACE_ID, OFF_AGE_ID);
+1669934229209:md_lu;
+1669934519562:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1669934524785:View(lu_eth)
+1669934619986:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669934620008:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID);
+1669934630503:md_off;
+1669934644447:View(md_off)
+1669934820435:md_lu <- mutate(md_off, OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669934820455:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669934820477:select(DATA_YEAR, OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_ID, OFF_RACE_ID, OFF_AGE_ID);
+1669934821747:md_lu <- mutate(md_off, OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669934821776:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669934821799:select(DATA_YEAR, OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_ID, OFF_RACE_ID, OFF_AGE_ID);
+1669934836291:md_lu <- mutate(md_off, OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669934836310:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669934836326:select(DATA_YEAR, OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_ID, OFF_RACE_ID, OFF_AGE_ID);
+1669934905344:md_lu <- mutate(md_off, OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669934905364:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669934905391:select(DATA_YEAR, OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1669934905407:OFF_RACE_DESC, OFF_AGE_CODE);
+1669934905441:md_lu;
+1669934999102:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% drop_na(INCIDENT_ID);
+1669935006548:View(md_vic)
+1669935185930:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669935185948:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID);
+1669935186329:md_vic;
+1669935193617:View(md_vic)
+1669935408211:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669935408229:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669935408245:mutate(md_off, OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669935408262:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669935408277:select(DATA_YEAR, OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1669935408292:OFF_RACE_DESC, OFF_AGE_CODE);
+1669935412313:View(md_off)
+1669935533939:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669935533958:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669935533974:mutate(md_vic, VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1669935533989:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669935534005:select(DATA_YEAR, VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1669935534021:VIC_RACE_DESC, VIC_AGE_CODE);
+1669935547823:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669935547840:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669935547856:mutate(md_vic, VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1669935547874:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669935547890:select(DATA_YEAR, VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1669935547908:VIC_RACE_DESC, VIC_AGE_CODE);
+1669935555367:View(md_vic)
+1669935581941:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669935581966:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669935581982:mutate(md_vic, VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1669935581995:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE);
+1669935582365:md_vic;
+1669935586179:View(md_vic)
+1669935620450:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669935620472:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669935620487:mutate(md_vic, VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1669935620502:VIC_AGE_NUM = AGE_NUM, VIC_SEX_CODE = SEX_CODE) %>%
+1669935620520:select(DATA_YEAR, VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1669935620538:VIC_RACE_DESC, VIC_AGE_CODE);
+1669935620910:md_vic;
+1669935625675:View(md_vic)
+1669935952945:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% drop_na(INCIDENT_ID);
+1669935955799:View(md_offe)
+1669936068403:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1669936369176:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID);
+1669936369536:md_offe;
+1669936657784:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID) %>%
+1669936657803:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1669936658186:md_offe;
+1669936693272:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669936693292:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669936693308:mutate(md_off, OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669936693326:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669936693345:select(DATA_YEAR, OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1669936693365:OFF_RACE_DESC, OFF_AGE_CODE);
+1669936693888:# Victim Data
+1669936693903:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669936693924:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669936693936:mutate(md_vic, VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1669936693950:VIC_AGE_NUM = AGE_NUM, VIC_SEX_CODE = SEX_CODE) %>%
+1669936693964:select(DATA_YEAR, VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1669936693979:VIC_RACE_DESC, VIC_AGE_CODE);
+1669936694536:# Offense Data
+1669936694559:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID) %>%
+1669936694575:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1669936694876:# Merging Largest Datasets Together
+1669936694907:ds_list <- list(md_off, md_vic, md_offe);
+1669936708828:ds_list <- list(md_off, md_vic, md_offe);
+1669936708846:TEMP <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1669936714251:View(TEMP)
+1669936770047:#BIOS611 Project
+1669936770066:#Reading in Data
+1669936770082:library(tidyverse);
+1669936770111:#Creating Lookup Tables
+1669936770127:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1669936770352:lu_race <- read_csv("Data/MD/REF_race.csv");
+1669936770625:lu_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1669936770823:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1669936771048:lu_crime_act <- read_csv("Data/MD/NIBRS_CRIMINAL_ACT.csv") %>%
+1669936771068:full_join(read_csv("Data/MD/NIBRS_CRIMINAL_ACT_TYPE.csv"), by = "CRIMINAL_ACT_ID");
+1669936771572:#Offender Data
+1669936771591:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669936771613:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669936771632:mutate(md_off, OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669936771651:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669936771668:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1669936771689:OFF_RACE_DESC, OFF_AGE_CODE);
+1669936771992:# Victim Data
+1669936772014:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669936772030:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669936772046:mutate(md_vic, VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1669936772061:VIC_AGE_NUM = AGE_NUM, VIC_SEX_CODE = SEX_CODE) %>%
+1669936772090:select(VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1669936772107:VIC_RACE_DESC, VIC_AGE_CODE);
+1669936772465:# Offense Data
+1669936772487:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID) %>%
+1669936772506:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1669936772805:# Merging Largest Datasets Together
+1669936772822:ds_list <- list(md_off, md_vic, md_offe);
+1669936772841:TEMP <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1669936776325:View(TEMP)
+1669936879349:ds_list <- list(md_off, md_vic, md_offe);
+1669936879366:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1669936915994:View(lu_crime_act)
+1669937112257:View(FINAL)
+1669937315499:bar_graph_age <- ggplot(FINAL, aes(fill = OFF_ETHNICITY_NAME, x = OFF_SEX_CODE) + geom_bar();
+1669937407955:bar_graph_age <- ggplot(FINAL, aes(fill = OFF_ETHNICITY_NAME, x = OFF_SEX_CODE) + geom_histogram();
+1669937472725:bar_graph_age <- ggplot(FINAL, aes(OFF_SEX_CODE) + geom_histogram();
+1669937482534:bar_graph_age <- ggplot(FINAL, aes(OFF_SEX_CODE) + geom_histogram()
+1669937483812:bar_graph_age <- ggplot(FINAL, aes(OFF_SEX_CODE) + geom_histogram()
+1669937488759:bar_graph_age <- ggplot(FINAL, aes(OFF_SEX_CODE) + geom_histogram()
+1669937507518:bar_graph_age <- ggplot(FINAL, aes(OFF_SEX_CODE)) + geom_histogram();
+1669937523919:bar_graph_age <- ggplot(FINAL, aes(OFF_SEX_CODE)) + geom_histogram();
+1669937534131:bar_graph_age;
+1669937545541:bar_graph_age <- ggplot(FINAL, aes(x = OFF_SEX_CODE)) + geom_histogram();
+1669937545560:bar_graph_age;
+1669937547594:bar_graph_age <- ggplot(FINAL, aes(x = OFF_SEX_CODE)) + geom_histogram();
+1669937547613:bar_graph_age;
+1669937569937:bar_graph_age <- ggplot(FINAL, aes(x = OFF_SEX_CODE)) + geom_histogram(stat = "Count");
+1669937569962:bar_graph_age;
+1669937649245:bar_graph_age <- ggplot(FINAL, color = off_ethnicity_name, aes(x = OFF_SEX_CODE)) + geom_histogram(stat = "Count");
+1669937649271:bar_graph_age;
+1669949516894:#BIOS611 Project
+1669949516913:#Reading in Data
+1669949516929:library(tidyverse);
+1669949519319:#Creating Lookup Tables
+1669949519333:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1669949519920:lu_race <- read_csv("Data/MD/REF_race.csv");
+1669949520139:lu_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1669949520371:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1669949520591:lu_crime_act <- read_csv("Data/MD/NIBRS_CRIMINAL_ACT.csv") %>%
+1669949520622:full_join(read_csv("Data/MD/NIBRS_CRIMINAL_ACT_TYPE.csv"), by = "CRIMINAL_ACT_ID");
+1669949521075:#Offender Data
+1669949521092:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669949521109:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669949521125:mutate(md_off, OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669949521141:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669949521156:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1669949521172:OFF_RACE_DESC, OFF_AGE_CODE);
+1669949544453:#BIOS611 Project
+1669949544476:#Reading in Data
+1669949544495:library(tidyverse);
+1669949544527:#Creating Lookup Tables
+1669949544546:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1669949544821:lu_race <- read_csv("Data/MD/REF_race.csv");
+1669949545083:lu_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1669949545341:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1669949545687:lu_crime_act <- read_csv("Data/MD/NIBRS_CRIMINAL_ACT.csv") %>%
+1669949545708:full_join(read_csv("Data/MD/NIBRS_CRIMINAL_ACT_TYPE.csv"), by = "CRIMINAL_ACT_ID");
+1669949546213:#Offender Data
+1669949546230:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669949546251:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669949546274:mutate(md_off, OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669949546292:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669949546325:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1669949546351:OFF_RACE_DESC, OFF_AGE_CODE);
+1669949565803:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669949565818:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669949565835:mutate(md_off, OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669949565855:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669949565873:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1669949565891:OFF_RACE_DESC, OFF_AGE_CODE);
+1669949581342:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669949581363:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669949581385:mutate(OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1669949581407:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1669949581423:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1669949581443:OFF_RACE_DESC, OFF_AGE_CODE);
+1669949584474:View(md_off)
+1669949602930:# Victim Data
+1669949602947:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1669949602964:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1669949602981:mutate(VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1669949602997:VIC_AGE_NUM = AGE_NUM, VIC_SEX_CODE = SEX_CODE) %>%
+1669949603014:select(VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1669949603030:VIC_RACE_DESC, VIC_AGE_CODE);
+1669949603688:# Offense Data
+1669949603707:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID) %>%
+1669949603725:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1669949612545:ds_list <- list(md_off, md_vic, md_offe);
+1669949612566:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1669949615360:View(FINAL)
+1669949693781:bar_graph_age <- ggplot(FINAL, color = off_ethnicity_name, aes(x = OFF_SEX_CODE)) + geom_histogram(stat = "Count");
+1669949693811:bar_graph_age;
+1669949816835:bar_graph_age <- ggplot(FINAL, fill = off_ethnicity_name, aes(x = OFF_SEX_CODE)) + geom_histogram(stat = "Count");
+1669949816858:bar_graph_age;
+1669949851744:bar_graph_age <- ggplot(FINAL, aes(x = OFF_SEX_CODE, fill = off_ethnicity_name)) + geom_histogram(stat = "Count");
+1669949851775:bar_graph_age;
+1669949888747:bar_graph_age <- ggplot(FINAL, aes(x = OFF_SEX_CODE, color = off_ethnicity_name)) + geom_histogram(stat = "Count");
+1669949888774:bar_graph_age;
+1669949914025:bar_graph_age <- ggplot(FINAL, aes(x = OFF_SEX_CODE, color = off_race_desc)) + geom_histogram(stat = "Count");
+1669949914057:bar_graph_age;
+1669949915301:bar_graph_age <- ggplot(FINAL, aes(x = OFF_SEX_CODE, color = off_race_desc)) + geom_histogram(stat = "Count");
+1669949915337:bar_graph_age;
+1669949931215:bar_graph_age <- ggplot(FINAL, aes(x = off_race_desc)) + geom_histogram(stat = "Count");
+1669949931242:bar_graph_age;
+1669949942279:bar_graph_age <- ggplot(FINAL, aes(x = OFF_RACE_DESC)) + geom_histogram(stat = "Count");
+1669949942305:bar_graph_age;
+1669950054755:bar_graph_age <- ggplot(FINAL, aes(x = OFF_RACE_DESC, color = OFF_SEX_CODE)) + geom_histogram(stat = "Count");
+1669950054782:bar_graph_age;
+1669950079237:bar_graph_age <- ggplot(FINAL, aes(x = OFF_SEX_CODE, color = OFF_RACE_DESC)) + geom_histogram(stat = "Count");
+1669950079269:bar_graph_age;
+1669950091728:bar_graph_age <- ggplot(FINAL, aes(x = OFF_SEX_CODE, fill = OFF_RACE_DESC)) + geom_histogram(stat = "Count");
+1669950091759:bar_graph_age;
+1670277373425:#BIOS611 Project
+1670277373444:#Reading in Data
+1670277373462:library(tidyverse);
+1670277374961:#Creating Lookup Tables
+1670277374984:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1670277375964:lu_race <- read_csv("Data/MD/REF_race.csv");
+1670277376306:lu_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1670277376656:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1670277376931:lu_crime_act <- read_csv("Data/MD/NIBRS_CRIMINAL_ACT.csv") %>%
+1670277376956:full_join(read_csv("Data/MD/NIBRS_CRIMINAL_ACT_TYPE.csv"), by = "CRIMINAL_ACT_ID");
+1670277377506:#Offender Data
+1670277377527:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670277377544:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670277377562:mutate(OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1670277377584:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1670277377606:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1670277377625:OFF_RACE_DESC, OFF_AGE_CODE);
+1670277378312:# Victim Data
+1670277378338:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670277378372:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670277378412:mutate(VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1670277378429:VIC_AGE_NUM = AGE_NUM, VIC_SEX_CODE = SEX_CODE) %>%
+1670277378455:select(VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1670277378477:VIC_RACE_DESC, VIC_AGE_CODE);
+1670277380017:# Offense Data
+1670277380037:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID) %>%
+1670277380057:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1670277380530:# Merging Largest Datasets Together
+1670277380551:ds_list <- list(md_off, md_vic, md_offe);
+1670277380568:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1670278248621:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM)) + geom_bar();
+1670278248686:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM)) + geom_bar();
+1670278248708:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM)) + geom_bar();
+1670278248731:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM)) + geom_bar();
+1670278265248:offage_bar;
+1670278286574:offage_bar;
+1670278286972:vicage_bar;
+1670278630409:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM)) + geom_bar() + labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland");
+1670278630440:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM)) + geom_bar() + labs(title = "Figure 2: Bar Graph of Victim Ages in Maryland");
+1670278637467:offage_bar;
+1670278637989:vicage_bar;
+1670278803981:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM)) + geom_bar() +
+1670278803998:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670278807324:offage_bar;
+1670278952207:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, color = "red")) + geom_bar() +
+1670278952226:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670278955197:offage_bar;
+1670278970105:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = "red")) + geom_bar() +
+1670278970166:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = "red")) + geom_bar() +
+1670278973308:offage_bar;
+1670278974702:offage_bar;
+1670278993213:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = "Red")) + geom_bar() +
+1670278993229:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670278998166:offage_bar;
+1670279018053:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = "BLUE")) + geom_bar() +
+1670279018072:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670279021231:offage_bar;
+1670279059106:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = "RED")) + geom_bar() +
+1670279059123:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670279059145:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM, fill = "BLUE")) + geom_bar() +
+1670279059161:labs(title = "Figure 2: Bar Graph of Victim Ages in Maryland");
+1670279064209:offage_bar;
+1670279064643:vicage_bar;
+1670279080311:offage_bar;
+1670279098187:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM, fill = "Black")) + geom_bar() +
+1670279098203:labs(title = "Figure 2: Bar Graph of Victim Ages in Maryland");
+1670279101524:vicage_bar;
+1670279174699:#BIOS611 Project
+1670279174716:#Reading in Data
+1670279174731:library(tidyverse);
+1670279176031:#Creating Lookup Tables
+1670279176047:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1670279176557:lu_race <- read_csv("Data/MD/REF_race.csv");
+1670279176779:lu_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1670279176980:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1670279177191:lu_crime_act <- read_csv("Data/MD/NIBRS_CRIMINAL_ACT.csv") %>%
+1670279177209:full_join(read_csv("Data/MD/NIBRS_CRIMINAL_ACT_TYPE.csv"), by = "CRIMINAL_ACT_ID");
+1670279177638:#Offender Data
+1670279177654:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670279177669:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670279177686:mutate(OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1670279177700:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1670279177718:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1670279177732:OFF_RACE_DESC, OFF_AGE_CODE);
+1670279178340:# Victim Data
+1670279178356:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670279178371:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670279178387:mutate(VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1670279178402:VIC_AGE_NUM = AGE_NUM, VIC_SEX_CODE = SEX_CODE) %>%
+1670279178418:select(VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1670279178434:VIC_RACE_DESC, VIC_AGE_CODE);
+1670279179164:# Offense Data
+1670279179180:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID) %>%
+1670279179203:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1670279179627:# Merging Largest Datasets Together
+1670279179644:ds_list <- list(md_off, md_vic, md_offe);
+1670279179663:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1670279182667:#Creating Graphs
+1670279182685:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = "RED")) + geom_bar() +
+1670279182701:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670279182742:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM, fill = "Black")) + geom_bar() +
+1670279182761:labs(title = "Figure 2: Bar Graph of Victim Ages in Maryland");
+1670279187052:vicage_bar;
+1670279244173:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar() +
+1670279244193:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670279248194:offage_bar;
+1670279278391:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar() +
+1670279278407:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670279278430:+ geom_col(color = "RED");
+1670279293654:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar() +
+1670279293671:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency") +
+1670279293691:geom_col(color = "RED");
+1670279297791:offage_bar;
+1670279325694:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar() +
+1670279325716:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency") +
+1670279325733:geom_col(colour = "red");
+1670279330085:offage_bar;
+1670279358952:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar() + geom_col(colour = "red") +
+1670279358971:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670279361973:offage_bar;
+1670279416881:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar(color = "Red") +
+1670279416897:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670279420369:offage_bar;
+1670279430083:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar(fill = "Red") +
+1670279430100:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670279433948:offage_bar;
+1670279461711:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM, fill = VIC_AGE_NUM)) + geom_bar(fill = "Blue") +
+1670279461727:labs(title = "Figure 2: Bar Graph of Victim Ages in Maryland");
+1670279464244:vicage_bar;
+1670279499858:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar(fill = "Red") +
+1670279499876:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Offender Age", y = "Frequency");
+1670279499898:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM, fill = VIC_AGE_NUM)) + geom_bar(fill = "Blue") +
+1670279499920:labs(title = "Figure 2: Bar Graph of Victim Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670279597783:ggsave("Figures/offage_bar.png", offage_bar);
+1670279598553:ggsave("Figures/vicage_bar.png", vicage_bar);
+1670279788456:offsex_bar <- ggplot(FINAL, aes(OFF_SEX_CODE, fill = OFF_SEX_CODE)) + geom_bar(fill = "Red") +
+1670279788479:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Offender Sex", y = "Frequency");
+1670279798995:offsex_bar;
+1670280200236:offsex_bar <- ggplot(FINAL, aes(OFF_SEX_CODE, fill = OFF_SEX_CODE)) + geom_bar(fill = "Red") +
+1670280200254:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Offender Sex", y = "Frequency");
+1670280200285:vicsex_bar <- ggplot(FINAL, aes(VIC_SEX_CODE, fill = VIC_SEX_CODE)) + geom_bar(fill = "Blue") +
+1670280200301:labs(title = "Figure 2: Bar Graph of Victim Ages in Maryland", x = "Victim Sex", y = "Frequency");
+1670280662269:location_bar <- ggplot(FINAL, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670280662287:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670280662313:location_bar;
+1670280790431:count_location <- FINAL %>% count(LOCATION_NAME);
+1670280799936:count_location;
+1670280828897:count_location <- FINAL %>% count(LOCATION_NAME) %>% sort(descending);
+1670280847740:count_location <- FINAL %>% count(LOCATION_NAME) %>% sort(descreasing = TRUE);
+1670280868097:count_location <- FINAL %>% count(LOCATION_NAME) %>% sort(decreasing = TRUE);
+1670280876582:count_location <- FINAL %>% count(LOCATION_NAME) %>% sort();
+1670280908867:count_location <- FINAL %>% count(LOCATION_NAME, sort = TRUE);
+1670280908898:count_location;
+1670280999598:count_location <- FINAL %>% count(LOCATION_NAME, sort = TRUE) %>% top_n(10);
+1670280999774:count_location;
+1670281021194:count_l <- FINAL %>% count(LOCATION_NAME, sort = TRUE) %>% top_n(10);
+1670281075375:count_l <- FINAL %>% count(LOCATION_NAME, sort = TRUE) %>% top_n(10);
+1670281075552:location_top <- FINAL %>% full_join(count_l, by = "LOCATION_NAME");
+1670281075594:location_top;
+1670281092332:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281092352:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281092377:location_bar;
+1670281120434:location_top <- FINAL %>% left_join(count_l, by = "LOCATION_NAME");
+1670281120471:location_top;
+1670281128228:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281128248:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281128271:location_bar;
+1670281136312:count_l <- FINAL %>% count(LOCATION_NAME, sort = TRUE) %>% top_n(10);
+1670281206999:count_l <- FINAL %>% count(LOCATION_NAME, sort = TRUE) %>% top_n(10);
+1670281207196:count_l;
+1670281336478:location_top <- FINAL %>% filter(LOCATION_NAME %in% count_l$LOCATION_NAME);
+1670281336548:location_top;
+1670281342011:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281342045:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281342080:location_bar;
+1670281509000:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME, x=reorder(LOCATION_NAME, LOCATION_NAME, function(x)-length(x))) + geom_bar(fill = "Green") +
+1670281509021:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281526913:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME, x=reorder(LOCATION_NAME, LOCATION_NAME, function(x)-length(x))) + geom_bar(fill = "Green") +
+1670281526933:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281526951:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME, x=reorder(LOCATION_NAME, LOCATION_NAME, function(x)-length(x))) + geom_bar(fill = "Green") +
+1670281526971:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281580046:location_top <- FINAL %>% filter(LOCATION_NAME %in% count_l$LOCATION_NAME);
+1670281580087:location_top;
+1670281584211:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME, x=reorder(LOCATION_NAME, LOCATION_NAME, function(x)-length(x))) + geom_bar(fill = "Green") +
+1670281584235:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281608837:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281608856:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281608881:location_bar;
+1670281623952:location_top <- FINAL %>% filter(LOCATION_NAME %in% count_l$LOCATION_NAME) %>% sort();
+1670281666274:location_top <- FINAL %>% filter(LOCATION_NAME %in% count_l$LOCATION_NAME) %>% arrange(desc(LOCATION_NAME));
+1670281666705:location_top;
+1670281666852:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281666869:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281666893:location_bar;
+1670281744487:options(repr.plot.width = 6, repr.plot.height =3)
+1670281744506:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281744522:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281744546:location_bar;
+1670281757513:options(repr.plot.width = 12, repr.plot.height =3);
+1670281757530:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281757548:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281757571:location_bar;
+1670281769837:options(repr.plot.width = 50, repr.plot.height =3);
+1670281769853:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281769868:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281769893:location_bar;
+1670281779801:options(repr.plot.width = 50, repr.plot.height = 2);
+1670281779816:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281779833:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281779855:location_bar;
+1670281843235:dev.new(width=10, height=5, unit="in");
+1670281843256:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281843273:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency");
+1670281843298:location_bar;
+1670281980801:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281980824:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency") +
+1670281980845:scale_x_discrete(guide = guide_axis(n.dodge=2));
+1670281980872:location_bar;
+1670281989922:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670281989939:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency") +
+1670281989952:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670281989972:location_bar;
+1670282110927:View(location_top)
+1670282168395:location_top <- FINAL %>% filter(LOCATION_NAME %in% count_l$LOCATION_NAME) %>% arrange(desc(LOCATION_NAME)) %>% summarize(count = n());
+1670282168817:location_top;
+1670282195704:location_top <- FINAL %>% filter(LOCATION_NAME %in% count_l$LOCATION_NAME) %>% arrange(desc(LOCATION_NAME)) %>% summarize(count = n(LOCATION_NAME));
+1670282305959:ggsave("Figures/offage_bar.png", offage_bar);
+1670282306386:ggsave("Figures/vicage_bar.png", vicage_bar);
+1670282306893:#Sex
+1670282306907:ggsave("Figures/offsex_bar.png", offsex_bar);
+1670282307290:ggsave("Figures/vicsex_bar.png", vicsex_bar);
+1670282307657:#Location
+1670282307672:ggsave("Figures/location_bar.png", location_bar);
+1670282803497:location_bar <- ggplot(location_top, aes(LOCATION_NAME, reorder fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670282806241:location_bar <- ggplot(location_top, aes(LOCATION_NAME, reorder fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670282819947:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670282819963:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency") +
+1670282819977:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670282820003:location_bar;
+1670282853895:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670282853915:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency") +
+1670282853933:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670282853959:location_bar;
+1670282856182:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670282856200:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency") +
+1670282856216:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670282856244:location_bar;
+1670282864080:count_l <- FINAL %>% count(LOCATION_NAME, sort = TRUE) %>% top_n(10);
+1670282864294:location_top <- FINAL %>% filter(LOCATION_NAME %in% count_l$LOCATION_NAME) %>% arrange(desc(LOCATION_NAME));
+1670282868476:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670282868494:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency") +
+1670282868508:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670282868529:location_bar;
+1670282959611:bar_graph_age <- ggplot(FINAL, aes(x = OFF_SEX_CODE, fill = OFF_RACE_DESC)) + geom_histogram(stat = "Count");
+1670282959669:bar_graph_age;
+1670283928626:library(tidyverse);
+1670283929651:library(gridExtra);
+1670284135555:#BIOS611 Project
+1670284135573:#Reading in Data
+1670284135590:library(tidyverse);
+1670284135606:library(gridExtra);
+1670284135639:#Creating Lookup Tables
+1670284135660:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1670284136264:lu_race <- read_csv("Data/MD/REF_race.csv");
+1670284136482:lu_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1670284136679:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1670284136917:#Offender Data
+1670284136936:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670284136966:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670284136991:mutate(OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1670284137010:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1670284137036:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1670284137065:OFF_RACE_DESC, OFF_AGE_CODE);
+1670284137490:# Victim Data
+1670284137505:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670284137521:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670284137536:mutate(VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1670284137551:VIC_AGE_NUM = AGE_NUM, VIC_SEX_CODE = SEX_CODE) %>%
+1670284137567:select(VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1670284137584:VIC_RACE_DESC, VIC_AGE_CODE);
+1670284138166:# Offense Data
+1670284138183:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID) %>%
+1670284138201:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1670284138498:# Merging Largest Datasets Together
+1670284138514:ds_list <- list(md_off, md_vic, md_offe);
+1670284138530:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1670284138789:#Creating Graphs
+1670284138803:#Age
+1670284138820:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar(fill = "Red") +
+1670284138835:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Offender Age", y = "Frequency");
+1670284138864:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM, fill = VIC_AGE_NUM)) + geom_bar(fill = "Blue") +
+1670284138879:labs(title = "Figure 2: Bar Graph of Victim Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670284138914:#Sex
+1670284138929:offsex_bar <- ggplot(FINAL, aes(OFF_SEX_CODE, fill = OFF_SEX_CODE)) + geom_bar(fill = "Red") +
+1670284138944:labs(title = "Figure 3: Bar Graph of Offender Sexes in Maryland", x = "Offender Sex", y = "Frequency");
+1670284138966:vicsex_bar <- ggplot(FINAL, aes(VIC_SEX_CODE, fill = VIC_SEX_CODE)) + geom_bar(fill = "Blue") +
+1670284138981:labs(title = "Figure 4: Bar Graph of Victim Sexes in Maryland", x = "Victim Sex", y = "Frequency");
+1670284139016:#Location
+1670284139032:count_l <- FINAL %>% count(LOCATION_NAME, sort = TRUE) %>% top_n(10);
+1670284139229:location_top <- FINAL %>% filter(LOCATION_NAME %in% count_l$LOCATION_NAME) %>% arrange(desc(LOCATION_NAME));
+1670284139645:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670284139660:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency") +
+1670284139680:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670284787209:ggsave("Dervied_data/FINAL.csv", FINAL);
+1670284959301:TOTAL_DATA <- write_csv(FINAL);
+1670284974087:TOTAL_DATA <- write_csv(FINAL, delim = ",");
+1670284995303:TOTAL_DATA <- write_csv(FINAL);
+1670285054230:write_csv("Derived_data/FINAL", FINAL);
+1670285069775:write_csv("Derived_data/FINAL.csv", FINAL);
+1670285086530:write_csv(FINAL, "Derived_data/FINAL.csv");
+1670286704294:*** [Makefile:10: Figures/~] Error 1
+1670286815475:#Saving
+1670286815504:#Final Data
+1670286815535:ggsave("Dervied_data/FINAL.csv", FINAL);
+1670286821235:#BIOS611 Project
+1670286821250:#Reading in Data
+1670286821265:library(tidyverse);
+1670286822707:library(gridExtra);
+1670286822767:#Creating Lookup Tables
+1670286822782:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1670286823365:lu_race <- read_csv("Data/MD/REF_race.csv");
+1670286823602:lu_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1670286823811:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1670286824032:#Offender Data
+1670286824056:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670286824072:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670286824086:mutate(OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1670286824103:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1670286824118:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1670286824134:OFF_RACE_DESC, OFF_AGE_CODE);
+1670286824550:# Victim Data
+1670286824566:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670286824581:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670286824597:mutate(VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1670286824613:VIC_AGE_NUM = AGE_NUM, VIC_SEX_CODE = SEX_CODE) %>%
+1670286824631:select(VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1670286824652:VIC_RACE_DESC, VIC_AGE_CODE);
+1670286825268:# Offense Data
+1670286825285:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID) %>%
+1670286825301:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1670286825605:# Merging Largest Datasets Together
+1670286825621:ds_list <- list(md_off, md_vic, md_offe);
+1670286825639:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1670286825932:#Creating Graphs
+1670286825955:#Age
+1670286825974:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar(fill = "Red") +
+1670286825993:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Offender Age", y = "Frequency");
+1670286826024:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM, fill = VIC_AGE_NUM)) + geom_bar(fill = "Blue") +
+1670286826038:labs(title = "Figure 2: Bar Graph of Victim Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670286826088:#Sex
+1670286826114:offsex_bar <- ggplot(FINAL, aes(OFF_SEX_CODE, fill = OFF_SEX_CODE)) + geom_bar(fill = "Red") +
+1670286826129:labs(title = "Figure 3: Bar Graph of Offender Sexes in Maryland", x = "Offender Sex", y = "Frequency");
+1670286826155:vicsex_bar <- ggplot(FINAL, aes(VIC_SEX_CODE, fill = VIC_SEX_CODE)) + geom_bar(fill = "Blue") +
+1670286826189:labs(title = "Figure 4: Bar Graph of Victim Sexes in Maryland", x = "Victim Sex", y = "Frequency");
+1670286826232:#Location
+1670286826250:count_l <- FINAL %>% count(LOCATION_NAME, sort = TRUE) %>% top_n(10);
+1670286826439:location_top <- FINAL %>% filter(LOCATION_NAME %in% count_l$LOCATION_NAME) %>% arrange(desc(LOCATION_NAME));
+1670286826875:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670286826892:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency") +
+1670286826908:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670286981945:#BIOS611 Project
+1670286981971:#Reading in Data
+1670286982002:library(tidyverse);
+1670287112940:location_bar;
+1670287119807:#BIOS611 Project
+1670287119825:#Reading in Data
+1670287119842:library(tidyverse);
+1670287119872:#Creating Lookup Tables
+1670287119887:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1670287120388:lu_race <- read_csv("Data/MD/REF_race.csv");
+1670287120670:lu_age <- read_csv("Data/MD/NIBRS_Age.csv");
+1670287120919:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1670287121135:#Offender Data
+1670287121152:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670287121170:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670287121185:mutate(OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1670287121199:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1670287121215:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1670287121230:OFF_RACE_DESC, OFF_AGE_CODE);
+1670287121642:# Victim Data
+1670287121656:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670287121672:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670287121687:mutate(VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1670287121703:VIC_AGE_NUM = AGE_NUM, VIC_SEX_CODE = SEX_CODE) %>%
+1670287121721:select(VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1670287121737:VIC_RACE_DESC, VIC_AGE_CODE);
+1670287122206:# Offense Data
+1670287122229:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID) %>%
+1670287122247:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1670287122569:# Merging Largest Datasets Together
+1670287122585:ds_list <- list(md_off, md_vic, md_offe);
+1670287122603:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1670287122838:#Creating Graphs
+1670287122854:#Age
+1670287122870:offage_bar <- ggplot(FINAL, aes(OFF_AGE_NUM, fill = OFF_AGE_NUM)) + geom_bar(fill = "Red") +
+1670287122891:labs(title = "Figure 1: Bar Graph of Offender Ages in Maryland", x = "Offender Age", y = "Frequency");
+1670287122923:vicage_bar <- ggplot(FINAL, aes(VIC_AGE_NUM, fill = VIC_AGE_NUM)) + geom_bar(fill = "Blue") +
+1670287122938:labs(title = "Figure 2: Bar Graph of Victim Ages in Maryland", x = "Victim Age", y = "Frequency");
+1670287122973:#Sex
+1670287122988:offsex_bar <- ggplot(FINAL, aes(OFF_SEX_CODE, fill = OFF_SEX_CODE)) + geom_bar(fill = "Red") +
+1670287123009:labs(title = "Figure 3: Bar Graph of Offender Sexes in Maryland", x = "Offender Sex", y = "Frequency");
+1670287123033:vicsex_bar <- ggplot(FINAL, aes(VIC_SEX_CODE, fill = VIC_SEX_CODE)) + geom_bar(fill = "Blue") +
+1670287123052:labs(title = "Figure 4: Bar Graph of Victim Sexes in Maryland", x = "Victim Sex", y = "Frequency");
+1670287123083:#Location
+1670287123100:count_l <- FINAL %>% count(LOCATION_NAME, sort = TRUE) %>% top_n(10);
+1670287123291:location_top <- FINAL %>% filter(LOCATION_NAME %in% count_l$LOCATION_NAME) %>% arrange(desc(LOCATION_NAME));
+1670287123899:location_bar <- ggplot(location_top, aes(LOCATION_NAME, fill = LOCATION_NAME)) + geom_bar(fill = "Green") +
+1670287123914:labs(title = "Figure 2: Bar Graph of Location of Crimes in Maryland", x = "Location", y = "Frequency") +
+1670287123934:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670287128608:location_bar;
+1670287130646:location_bar;
+1670287419413:offage_mean <- FINAL %>% summarize(OFF_MEAN = mean(OFF_AGE_NUM), VIC_MEAN = mean(VIC_AGE_MEAN));
+1670287433491:offage_mean <- FINAL %>% summarize(OFF_MEAN = mean(OFF_AGE_NUM), VIC_MEAN = mean(VIC_AGE_NUM));
+1670287435777:offage_mean <- FINAL %>% summarize(OFF_MEAN = mean(OFF_AGE_NUM), VIC_MEAN = mean(VIC_AGE_NUM));
+1670287443566:FINAL %>% summarize(OFF_MEAN = mean(OFF_AGE_NUM), VIC_MEAN = mean(VIC_AGE_NUM));
+1670287473189:FINAL %>% summarize(OFF_MEAN = mean(OFF_AGE_NUM), VIC_MEAN = mean(VIC_AGE_NUM)) %>% drop_na(OFF_AGE_MEAN, VIC_AGE_MEAN);
+1670287486746:FINAL %>% summarize(OFF_MEAN = mean(OFF_AGE_NUM), VIC_MEAN = mean(VIC_AGE_NUM)) %>% drop_na(OFF_AGE_NUM, VIC_AGE_NUM);
+1670287516272:FINAL %>% drop_na(OFF_AGE_NUM, VIC_AGE_NUM);
+1670287524402:FINAL %>% drop_na(OFF_AGE_NUM, VIC_AGE_NUM) %>% summarize(OFF_MEAN = mean(OFF_AGE_NUM), VIC_MEAN = mean(VIC_AGE_NUM));
+1670288018863:young <- FINAL %>% filter(off_age_num < 30);
+1670288066757:young <- FINAL %>% filter(OFF_AGE_NUM< 30);
+1670288066793:young_count <- young %>% count(OFF_AGE_NUM, sort = TRUE) %>% top_n(10);
+1670288067044:young_count;
+1670288244997:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% drop_na(INCIDENT_ID) %>%
+1670288245018:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1670288311505:lu_offense_type <- read_csv("Data/MD/NIBRS_OFFENSE_TYPE.csv");
+1670288316542:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% left_join(lu_offense_type, by = "OFFENSE_TYPE_ID") %>%
+1670288316561:drop_na(INCIDENT_ID) %>%
+1670288316580:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME);
+1670288323908:ds_list <- list(md_off, md_vic, md_offe);
+1670288323926:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1670288356401:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% left_join(lu_offense_type, by = "OFFENSE_TYPE_ID") %>%
+1670288356419:drop_na(INCIDENT_ID) %>%
+1670288356437:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME, OFFENSE_NAME);
+1670288362093:ds_list <- list(md_off, md_vic, md_offe);
+1670288362116:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1670288385455:young <- FINAL %>% filter(OFF_AGE_NUM< 30);
+1670288385488:young_count <- young %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670288385660:young_count;
+1670288428468:old_count <- old %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670288437428:old <- FINAL %>% filter(OFF_AGE_NUM >= 30);
+1670288437463:old_count <- old %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670288437652:old_count;
+1670288453702:young <- FINAL %>% filter(OFF_AGE_NUM < 40);
+1670288453739:young_count <- young %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670288453910:young_count;
+1670288453956:old <- FINAL %>% filter(OFF_AGE_NUM >= 40);
+1670288453988:old_count <- old %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670288454188:old_count;
+1670288659923:young <- FINAL %>% filter(OFF_AGE_NUM < 40);
+1670288659955:young_count <- young %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670288660119:young_list <- FINAL %>% filter(OFFENSE_NAME %in% young_count$OFFENSE_NAME) %>% arrange(desc(OFFENSE_NAME));
+1670288660472:old <- FINAL %>% filter(OFF_AGE_NUM >= 40);
+1670288660517:old_count <- old %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670288660709:old_list <- FINAL %>% filter(OFFENSE_NAME %in% old_count$OFFENSE_NAME) %>% arrange(desc(OFFENSE_NAME));
+1670288834885:young_bar <- ggplot(young_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Red") +
+1670288834910:labs(title = "Figure 6: Bar Graph of Top 10 Crimes in Maryland for Offenders Younger than 40", x = "Crime", y = "Frequency") +
+1670288834930:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670288845608:young_bar;
+1670288887252:young_bar <- ggplot(young_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Red") +
+1670288887269:labs(title = "Figure 6: Bar Graph of Top 10 Crimes in Maryland for Offenders Younger than 40", x = "Crime", y = "Frequency") +
+1670288887283:scale_x_discrete(guide = guide_axis(n.dodge=2));
+1670288887313:young_bar;
+1670288899112:young_bar <- ggplot(young_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Red") +
+1670288899131:labs(title = "Figure 6: Bar Graph of Top 10 Crimes in Maryland for Offenders Younger than 40", x = "Crime", y = "Frequency") +
+1670288899152:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670288899184:young_bar;
+1670288952370:young_bar <- ggplot(young_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Orange") +
+1670288952389:labs(title = "Figure 6: Bar Graph of Top 10 Crimes in Maryland for Offenders Younger than 40", x = "Crime", y = "Frequency") +
+1670288952406:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670288952444:old_bar <- ggplot(old_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Black") +
+1670288952463:labs(title = "Figure 7: Bar Graph of Top 10 Crimes in Maryland for Offenders Older than 40", x = "Crime", y = "Frequency") +
+1670288952478:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670288952510:young_bar;
+1670288952800:old_bar;
+1670288968574:young_bar <- ggplot(young_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Orange") +
+1670288968594:labs(title = "Figure 6: Bar Graph of Top 10 Crimes in Maryland for Offenders Younger than 40", x = "Crime", y = "Frequency") +
+1670288968615:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670288977220:young_bar;
+1670289976126:men <- FINAL %>% filter(VIC_SEX_CODE == M);
+1670289989703:men <- FINAL %>% filter(VIC_SEX_CODE == "M");
+1670289989738:men_count <- men %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670289989926:men_list <- FINAL %>% filter(OFFENSE_NAME %in% men_count$OFFENSE_NAME) %>% arrange(desc(OFFENSE_NAME));
+1670289990289:men_count;
+1670290253464:women <- FINAL %>% filter(VIC_SEX_CODE == "W");
+1670290253495:women_count <- women %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670290253669:women_list <- FINAL %>% filter(OFFENSE_NAME %in% women_count$OFFENSE_NAME) %>% arrange(desc(OFFENSE_NAME));
+1670290253729:women_count;
+1670290264964:women <- FINAL %>% filter(VIC_SEX_CODE == "F");
+1670290264998:women_count <- women %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670290265203:women_list <- FINAL %>% filter(OFFENSE_NAME %in% women_count$OFFENSE_NAME) %>% arrange(desc(OFFENSE_NAME));
+1670290265594:women_count;
+1670290917070:men_bar <- ggplot(men_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Orange") +
+1670290917097:labs(title = "Figure 8: Bar Graph of Top 10 Crimes in Maryland against Men", x = "Crime", y = "Frequency") +
+1670290917117:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670290917185:women_bar <- ggplot(women_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Orange") +
+1670290917214:labs(title = "Figure 8: Bar Graph of Top 10 Crimes in Maryland against Women", x = "Crime", y = "Frequency") +
+1670290917235:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670290920864:men_bar;
+1670290941991:men_bar <- ggplot(men_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Blue") +
+1670290942016:labs(title = "Figure 8: Bar Graph of Top 10 Crimes in Maryland against Men", x = "Crime", y = "Frequency") +
+1670290942045:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670290942091:women_bar <- ggplot(women_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Pink") +
+1670290942113:labs(title = "Figure 9: Bar Graph of Top 10 Crimes in Maryland against Women", x = "Crime", y = "Frequency") +
+1670290942130:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670290945639:women_bar;
+1670290987081:men_bar;
+1670291242191:ggsave("Figures/women_crime.png", women_bar);
+1670291242682:ggsave("Figures/men_crime.png", men_bar);
+1670293956163:men_bar;
+1670293956849:women_bar;
+1670293979646:location_bar;
+1670293981899:location_bar;
+1670294259593:home <- FINAL %>% filter(LOCATION_NAME == "Residence/Home");
+1670294259690:home_count <- men %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670294259862:home_list <- FINAL %>% filter(OFFENSE_NAME %in% home_count$OFFENSE_NAME) %>% arrange(desc(OFFENSE_NAME));
+1670294260235:road <- FINAL %>% filter(LOCATION_NAME == "Highway/Road/Alley/Street/Sidewalk");
+1670294260270:road_count <- road %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670294260459:road_list <- FINAL %>% filter(OFFENSE_NAME %in% road_count$OFFENSE_NAME) %>% arrange(desc(OFFENSE_NAME));
+1670294260921:park <- FINAL %>% filter(LOCATION_NAME == "Parking/Drop Lot/Garage");
+1670294261015:park_count <- park %>% count(OFFENSE_NAME, sort = TRUE) %>% top_n(10);
+1670294261235:park_list <- FINAL %>% filter(OFFENSE_NAME %in% park_count$OFFENSE_NAME) %>% arrange(desc(OFFENSE_NAME));
+1670294264219:home_count;
+1670294264269:road_count;
+1670294264336:park_count;
+1670294429747:home_bar <- ggplot(home_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Black") +
+1670294429765:labs(title = "Figure 10: Bar Graph of Top 10 Crimes in Maryland Committed in Homes", x = "Crime", y = "Frequency") +
+1670294429780:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670294429812:road_bar <- ggplot(road_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Green") +
+1670294429829:labs(title = "Figure 10: Bar Graph of Top 10 Crimes in Maryland Committed on Public Roads", x = "Crime", y = "Frequency") +
+1670294429847:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670294429884:park_bar <- ggplot(park_list, aes(OFFENSE_NAME, fill = OFFENSE_NAME)) + geom_bar(fill = "Blue") +
+1670294429902:labs(title = "Figure 10: Bar Graph of Top 10 Crimes in Maryland Committed in Parking Lots", x = "Crime", y = "Frequency") +
+1670294429919:scale_x_discrete(guide = guide_axis(n.dodge=3));
+1670294436446:home_bar;
+1670294447149:road_bar;
+1670294457075:park_bar;
+1670294585125:ggsave("Figures/park_crime.png", park_bar);
+1670294594532:ggsave("Figures/park_crime.png", park_bar);
+1670294837842:young_bar;
+1670294848894:old_bar;
+1670294861378:young_bar;
+1670294874968:old_bar;
+1670294888116:young_bar;
+1670294896976:old_bar;
+1670295016767:young_bar;
+1670295027257:old_bar;
+1670295059553:young_bar;
+1670295073236:old_bar;
+1670295124856:women_bar;
+1670295139576:men_bar;
+1670295151781:women_bar;
+1670295200211:men_bar;
+1670295289919:home_bar;
+1670295300480:road_bar;
+1670295310118:park_bar;
+1670295362074:home_bar;
+1670295399291:road_bar;
+1670295405577:park_bar;
+1670296526905:sink();
+1670296539150:sink("Logs/logfile.txt");
+1670296543987:#Creating Lookup Tables
+1670296544065:lu_eth <- read_csv("Data/MD/NIBRS_ethnicity.csv");
+1670296563856:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1670296601120:#Creating Lookup Tables
+1670296601145:lu_eth <- read_csv("Data/MD/NIBRS_ETHNICITY.csv");
+1670296610880:lu_eth <- read_csv("Data/MD/NIBRS_ETHNICITY.csv");
+1670296616877:#BIOS611 Project
+1670296616909:#Reading in Data
+1670296616930:library(tidyverse);
+1670296674308:sink(file = "Logs/logfile.txt");
+1670296772669:lu_race <- read_csv("Data/MD/REF_RACE.csv");
+1670296991480:library(logr);
+1670297044942:library(logr);
+1670297176850:#BIOS611 Project
+1670297176869:#Reading in Data
+1670297176887:library(tidyverse);
+1670297178431:library(logr);
+1670297178469:#Creating Lookup Tables
+1670297178485:lu_eth <- read_csv("Data/MD/NIBRS_ETHNICITY.csv");
+1670297178979:lu_race <- read_csv("Data/MD/REF_RACE.csv");
+1670297179199:lu_age <- read_csv("Data/MD/NIBRS_AGE.csv");
+1670297179402:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1670297179611:lu_offense_type <- read_csv("Data/MD/NIBRS_OFFENSE_TYPE.csv");
+1670297179811:#Offender Data
+1670297179828:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670297179846:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670297179863:mutate(OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1670297179878:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1670297179893:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1670297179914:OFF_RACE_DESC, OFF_AGE_CODE);
+1670297180285:write_csv(Derived_data/Offender_Data.csv);
+1670297207117:write_csv("Derived_data/Offender_Data.csv");
+1670297263538:#BIOS611 Project
+1670297263567:#Reading in Data
+1670297263593:library(tidyverse);
+1670297263611:library(logr);
+1670297263644:#Creating Lookup Tables
+1670297263664:lu_eth <- read_csv("Data/MD/NIBRS_ETHNICITY.csv");
+1670297263861:lu_race <- read_csv("Data/MD/REF_RACE.csv");
+1670297264223:lu_age <- read_csv("Data/MD/NIBRS_AGE.csv");
+1670297264432:lu_loc <- read_csv("Data/MD/NIBRS_LOCATION_TYPE.csv");
+1670297264636:lu_offense_type <- read_csv("Data/MD/NIBRS_OFFENSE_TYPE.csv");
+1670297264840:#Offender Data
+1670297264857:md_off <- read_csv("Data/MD/NIBRS_offender.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670297264883:left_join(lu_race, by = "RACE_ID") %>% left_join(lu_age, by = "AGE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670297264904:mutate(OFF_AGE_CODE = AGE_CODE, OFF_RACE_DESC = RACE_DESC, OFF_ETHNICITY_NAME = ETHNICITY_NAME,
+1670297264927:OFF_AGE_NUM = AGE_NUM, OFF_SEX_CODE = SEX_CODE) %>%
+1670297264944:select(OFFENDER_ID, INCIDENT_ID, OFF_AGE_NUM, OFF_SEX_CODE, OFF_ETHNICITY_NAME,
+1670297264961:OFF_RACE_DESC, OFF_AGE_CODE);
+1670297265304:write_csv(md_off, "Derived_data/Offender_Data.csv");
+1670297265652:# Victim Data
+1670297265667:md_vic <- read_csv("Data/MD/NIBRS_victim.csv") %>% left_join(lu_eth, by = "ETHNICITY_ID") %>%
+1670297265682:left_join(lu_age, by = "AGE_ID") %>% left_join(lu_race, by = "RACE_ID") %>% drop_na(INCIDENT_ID) %>%
+1670297265699:mutate(VIC_AGE_CODE = AGE_CODE, VIC_RACE_DESC = RACE_DESC, VIC_ETHNICITY_NAME = ETHNICITY_NAME,
+1670297265715:VIC_AGE_NUM = AGE_NUM, VIC_SEX_CODE = SEX_CODE) %>%
+1670297265732:select(VICTIM_ID, INCIDENT_ID, VIC_AGE_NUM, VIC_SEX_CODE, VIC_ETHNICITY_NAME,
+1670297265758:VIC_RACE_DESC, VIC_AGE_CODE);
+1670297266355:write_csv(md_vic, "Derived_data/Victim_data.csv");
+1670297266755:# Offense Data
+1670297266768:md_offe <- read_csv("Data/MD/NIBRS_offense.csv") %>% left_join(lu_loc, by = "LOCATION_ID") %>% left_join(lu_offense_type, by = "OFFENSE_TYPE_ID") %>%
+1670297266780:drop_na(INCIDENT_ID) %>%
+1670297266793:select(DATA_YEAR, OFFENSE_ID, INCIDENT_ID, OFFENSE_TYPE_ID, LOCATION_NAME, OFFENSE_NAME);
+1670297267171:write_csv(md_offe, "Derived_data/Offense_data.csv");
+1670297294335:ds_list <- list(md_off, md_vic, md_offe);
+1670297294354:FINAL <- ds_list %>% reduce(full_join, by = 'INCIDENT_ID');
+1670297294438:write_csv(FINAL, "Derived_data/FINAL_data.csv");
+1670297305565:make clean

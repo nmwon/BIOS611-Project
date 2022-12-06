@@ -1,0 +1,32 @@
+---
+title: "FinalProject"
+author: "Noah"
+date: "2022-10-21"
+output: pdf_document
+---
+## Introduction
+During my formative years, my family and I lived in a suburb outside of Baltimore, Maryland. I had been told all my life that Baltimore is one of the most dangerous cities in America but had not done any further investigation. To learn more, I decided to delve into crime data to learn more about the frequency and type of crime that happens in Maryland.
+
+
+#The Data
+The 2020 National Incident-Based Reporting System (NIBRS), is a national database of all crimes reported to the police. The data is very expansive and includes information about the offender, victim, types of crime, and other relevant data in the form of lookup tables and datasets. For the purpose of this project, I have merged the offense, victim, and offender datasets as well as related lookup tables. Information about offender/victim ethnicity, age, race, sex, type of crime, location, and more is captured in this dataset.
+
+##Preliminary Analysis
+
+## Bar Graph of Offender Age in Maryland
+![Alt Text](./figures/offage_bar.png)
+
+## Bar Graph of Victim Age in Maryland
+![Alt Text](./figures/vicage_bar.png)
+
+
+## Bar Graph of Offender Sex in Maryland
+![Alt Text](./figures/offsex_bar.png)
+
+## Bar Graph of Victim Age in Maryland
+![Alt Text](./figures/vicsex_bar.png)
+
+Interestingly, it seems that although the composition of offenders is overwhelmingly male, the composition of vicitms is approximately even between males and females. This discovery is worth exploring further...
+
+## Bar Graph of Top 10 Crime Locations in Maryland
+![Alt Text](./figures/location_bar.png)

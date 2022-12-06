@@ -18,6 +18,11 @@ From here, connect to the localhost by typing the following into a web browser
 https://localhost:8787
 ```
 
+Type the following to generate the figures needed for the report
+```
+make Figures/~
+```
+
 Lastly, type the following in the rstudio terminal to create the report
 ```
 make FinalReport.pdf

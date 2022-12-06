@@ -1,0 +1,4 @@
+# A tibble: 1 × 2
+  OFF_MEAN VIC_MEAN
+     <dbl>    <dbl>
+1     29.8     35.7

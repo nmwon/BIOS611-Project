@@ -1,0 +1,71 @@
+---
+title: "FinalProject"
+author: "Noah"
+date: "2022-10-21"
+output: pdf_document
+---
+## Introduction
+During my formative years, my family and I lived in a suburb outside of Baltimore, Maryland. I had been told all my life that Baltimore is one of the most dangerous cities in America but had not done any further investigation. To learn more, I decided to delve into crime data to learn more about the frequency and type of crime that happens in Maryland.
+
+
+## The Data
+The 2020 National Incident-Based Reporting System (NIBRS), is a national database of all crimes reported to the police. The data is very expansive and includes information about the offender, victim, types of crime, and other relevant data in the form of lookup tables and datasets. For the purpose of this project, I have merged the offense, victim, and offender datasets as well as related lookup tables. Information about offender/victim ethnicity, age, race, sex, type of crime, location, and more is captured in this dataset.
+
+## Preliminary Analysis
+
+# Bar Graph of Offender Age in Maryland
+![Alt Text](./figures/offage_bar.png)
+
+# Bar Graph of Victim Age in Maryland
+![Alt Text](./figures/vicage_bar.png)
+
+For both offender and victim age graphs it seems that there is a left skew. The mean age of offenders and victims was 29.8 and 35.7, respectively. The split in age leads me to believe that there may be difference in the type of crime committed by young offenders (i.e. age < 30) vs. older offenders (age >= 30).
+
+# Bar Graph of Offender Sex in Maryland
+![Alt Text](./figures/offsex_bar.png)
+
+# Bar Graph of Victim Age in Maryland
+![Alt Text](./figures/vicsex_bar.png)
+
+Interestingly, it seems that although the composition of offenders is overwhelmingly male, the composition of victims is approximately even between males and females. The types of crimes committed against men and women may also be different.
+
+# Bar Graph of Top 10 Crime Locations in Maryland
+![Alt Text](./figures/location_bar.png)
+
+The top three locations for crime to occur in Maryland are Residence/Home, Parking/Drop lot/Garage, and Highway/Road/Alley/Street/Sidewalk. This seems to follow given that Baltimore is an urban area. The nature of the second and third highest locations for crime seem to point to violent crime (e.g. robbery, theft). I will explore this further in the following graphs.
+
+## Types of Crimes by Age
+
+# Bar Graph of Top 10 Crimes for Offenders Young than 40
+![Alt Text](./figures/young_crime.png)
+
+# Bar Graph of Top 10 Crimes for Offenders Older than 40
+![Alt Text](./figures/old_crime.png)
+After splitting the data between offenders younger and older than 40, we find very little difference in the types of crimes they commit. For both groups, simple assault, destruction of property, and theft of motor vehicles were the most common crimes. It seems that among those incident reported, the types of crime in Maryland in 2020 do not differ much.
+
+## Types of Crimes Committed against Men and Women
+
+# Bar Graph of Top 10 Crimes Committed against Men
+![Alt Text](./figures/men_crime.png)
+
+# Bar Graph of Top 10 Crimes Committed agaisnt Women
+![Alt Text](./figures/women_crime.png)
+
+The top three crimes committed against women were false pretenses, simple assault, and motor theft. For men, the top three crimes were destruction of property, motor theft, and simple assault. However, women had simple assault committed against them at nearly the same rate as men while men overwhemingly committed more crimes than women.
+
+## Types of Crime in Popular Locations
+
+
+# Bar Graph of Top 10 Crimes Committed in Homes
+![Alt Text](./figures/home_crime.png)
+
+# Bar Graph of Top 10 Crimes Committed on Roads
+![Alt Text](./figures/road_crime.png)
+
+# Bar Graph of Top 10 Crimes Committed in Parking Lots
+![Alt Text](./figures/park_crime.png)
+
+Intuitively, the crime with the highest frequency was motor theft and destruction of property for all locations. The number of simple assaults (~7500) was roughly the same for all locations although the highest number of reported crimes were at home.
+
+## Conclusion
+After some data exploration, we have arrived on two possible hypotheses that warrant further investigation. First, we found from descriptive data that women may experience violent crime against them at higher rates than men. Since men disproportionately commit more crime, women may be experience a disproportionate amount of violence against them. Second, there may be more violent crime committed proportionately on public roads and parks compared to houses. Further investigation into these hypotheses may help police concentrate their efforts on this afflicted areas.
